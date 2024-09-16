@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Heart Disease Detector</h1>
+        <form method="POST">
+            <label for="age">Age:</label>
+            <input type="number" name="age" required><br>
+
+            <label for="sex">Sex (0: Female, 1: Male):</label>
+            <input type="number" name="sex" min="0" max="1" required><br>
+
+            <label for="cp">Chest Pain Type (0-3):</label>
+            <input type="number" name="cp" min="0" max="3" required><br>
+
+            <label for="trestbps">Resting Blood Pressure:</label>
+            <input type="number" name="trestbps" required><br>
+
+            <label for="chol">Cholesterol:</label>
+            <input type="number" name="chol" required><br>
+
+            <label for="fbs">Fasting Blood Sugar > 120 mg/dl (0: False, 1: True):</label>
+            <input type="number" name="fbs" min="0" max="1" required><br>
+
+            <label for="restecg">Resting ECG Results (0-2):</label>
+            <input type="number" name="restecg" min="0" max="2" required><br>
+
+            <label for="thalach">Maximum Heart Rate Achieved:</label>
+            <input type="number" name="thalach" required><br>
+
+            <label for="exang">Exercise Induced Angina (0: No, 1: Yes):</label>
+            <input type="number" name="exang" min="0" max="1" required><br>
+
+            <label for="oldpeak">ST Depression Induced by Exercise:</label>
+            <input type="number" name="oldpeak" step="0.1" required><br>
+
+            <label for="slope">Slope of the Peak Exercise ST Segment (0-2):</label>
+            <input type="number" name="slope" min="0" max="2" required><br>
+
+            <label for="ca">Number of Major Vessels Colored by Fluoroscopy (0-3):</label>
+            <input type="number" name="ca" min="0" max="3" required><br>
+
+            <label for="thal">Thalassemia (0-3):</label>
+            <input type="number" name="thal" min="0" max="3" required><br>
+
+            <input type="submit" value="Check">
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h2>Result:</h2>
+            <p>{{ result }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
